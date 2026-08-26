@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Vital Smash</title>
+  <meta name="description" content="Vital Smash — ODS 3 Salud y Bienestar. Aplasta fruta fresca, evita la comida prohibida." />
+  <meta name="theme-color" content="#4C9F38" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <h1 id="page-title" class="sr-only">Vital Smash — ODS 3 Salud y Bienestar</h1>
+    <div class="lang-dock" aria-label="Idioma">
+      <button type="button" class="lang-btn" data-lang="es" data-active="true">ES</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="pt">PT</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <canvas id="game"></canvas>
+    <div id="name-modal" class="name-modal" role="dialog" aria-modal="true" aria-labelledby="record-title" hidden>
+      <form id="name-form" class="name-card">
+        <h2 id="record-title">Escribe tu nombre</h2>
+        <p id="name-hint">Aparecerás en la tabla de récords</p>
+        <input id="player-name" maxlength="16" placeholder="Escribe tu nombre" autocomplete="nickname" />
+        <div class="name-actions">
+          <button type="submit" id="save-record" class="primary">Guardar récord</button>
+          <button type="button" id="skip-record" class="ghost">Omitir</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

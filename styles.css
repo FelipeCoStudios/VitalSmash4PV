@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #14281d;
+  color: #f4f1e8;
+  font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.game-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #14281d;
+}
+
+.game-shell canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.lang-dock {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.lang-dock > * {
+  pointer-events: auto;
+}
+
+.lang-btn {
+  min-width: 44px;
+  min-height: 36px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in oklab, #f4f1e8 16%, transparent);
+  background: color-mix(in oklab, #14281d 78%, transparent);
+  color: #f4f1e8;
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.lang-btn[data-active="true"] {
+  background: #4c9f38;
+  color: #f4f1e8;
+  border-color: #4c9f38;
+}
+
+.lang-status {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-size: 11px;
+  color: #b7c4b0;
+  max-width: 140px;
+}
+
+.name-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in oklab, #14281d 55%, transparent);
+  padding: 16px;
+}
+
+.name-modal[hidden] {
+  display: none;
+}
+
+.name-card {
+  width: min(360px, 100%);
+  background: #1b4332;
+  color: #f4f1e8;
+  border: 1px solid color-mix(in oklab, #f4f1e8 14%, transparent);
+  border-radius: 24px;
+  padding: 22px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.name-card p {
+  margin: 0;
+  color: #b7c4b0;
+  font-size: 0.9rem;
+}
+
+.name-card input {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, #f4f1e8 18%, transparent);
+  background: #14281d;
+  color: #f4f1e8;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.name-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.name-actions button {
+  flex: 1;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.name-actions .primary {
+  background: #4c9f38;
+  color: #f4f1e8;
+}
+
+.name-actions .ghost {
+  background: transparent;
+  color: #f4f1e8;
+  border: 1px solid color-mix(in oklab, #f4f1e8 18%, transparent);
+}
