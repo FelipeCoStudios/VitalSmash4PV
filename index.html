@@ -35,9 +35,34 @@
   </main>
   <script src="game.js"></script>
   <audio controls loop>
-  <source src="music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    // Hide/remove the Credits entry from the 4PV build without changing gameplay.
+    (function () {
+      function stripCredits() {
+        const game = window.__vital;
+        if (!game) return false;
+        if (!game.__creditsStripped) {
+          const originalBuildMenu = game.buildMenu;
+          game.buildMenu = function () {
+            originalBuildMenu.call(game);
+            game.menuButtons = game.menuButtons.filter(function (button) {
+              return button.label !== game.t("credits");
+            });
+          };
+          game.__creditsStripped = true;
+        }
+        game.buildMenu();
+        return true;
+      }
+      if (!stripCredits()) {
+        const timer = setInterval(function () {
+          if (stripCredits()) clearInterval(timer);
+        }, 25);
+      }
+    })();
+  </script>
 </body>
 </html>
