@@ -8,9 +8,10 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background: #14281d;
+  background: #0d1f14;
   color: #f4f1e8;
   font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
 }
 
 button:not(:disabled),
@@ -34,7 +35,7 @@ button:not(:disabled),
   position: fixed;
   inset: 0;
   overflow: hidden;
-  background: #14281d;
+  background: radial-gradient(ellipse at 50% 30%, #1b4332 0%, #0d1f14 70%);
 }
 
 .game-shell canvas {
@@ -63,27 +64,27 @@ button:not(:disabled),
   min-width: 44px;
   min-height: 36px;
   padding: 0 10px;
-  border-radius: 10px;
-  border: 1px solid color-mix(in oklab, #f4f1e8 16%, transparent);
-  background: color-mix(in oklab, #14281d 78%, transparent);
+  border-radius: 12px;
+  border: 1px solid rgba(244, 241, 232, 0.18);
+  background: rgba(20, 40, 29, 0.85);
   color: #f4f1e8;
   font-family: "Nunito", system-ui, sans-serif;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: background 0.15s, transform 0.12s;
+}
+
+.lang-btn:hover {
+  transform: translateY(-1px);
 }
 
 .lang-btn[data-active="true"] {
-  background: #4c9f38;
+  background: linear-gradient(180deg, #5cb848, #4c9f38);
   color: #f4f1e8;
   border-color: #4c9f38;
-}
-
-.lang-status {
-  font-family: "Nunito", system-ui, sans-serif;
-  font-size: 11px;
-  color: #b7c4b0;
-  max-width: 140px;
+  box-shadow: 0 2px 12px rgba(76, 159, 56, 0.35);
 }
 
 .name-modal {
@@ -93,7 +94,8 @@ button:not(:disabled),
   display: flex;
   align-items: center;
   justify-content: center;
-  background: color-mix(in oklab, #14281d 55%, transparent);
+  background: rgba(13, 31, 20, 0.7);
+  backdrop-filter: blur(4px);
   padding: 16px;
 }
 
@@ -103,19 +105,20 @@ button:not(:disabled),
 
 .name-card {
   width: min(360px, 100%);
-  background: #1b4332;
+  background: linear-gradient(165deg, #1f4d38, #1b4332);
   color: #f4f1e8;
-  border: 1px solid color-mix(in oklab, #f4f1e8 14%, transparent);
-  border-radius: 24px;
-  padding: 22px 20px 18px;
+  border: 1px solid rgba(244, 241, 232, 0.16);
+  border-radius: 20px;
+  padding: 24px 20px 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .name-card h2 {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
 }
 
@@ -126,14 +129,20 @@ button:not(:disabled),
 }
 
 .name-card input {
-  height: 44px;
+  height: 46px;
   border-radius: 12px;
-  border: 1px solid color-mix(in oklab, #f4f1e8 18%, transparent);
+  border: 1px solid rgba(244, 241, 232, 0.2);
   background: #14281d;
   color: #f4f1e8;
-  padding: 0 12px;
+  padding: 0 14px;
   font-family: inherit;
   font-size: 1rem;
+  outline: none;
+}
+
+.name-card input:focus {
+  border-color: #4c9f38;
+  box-shadow: 0 0 0 3px rgba(76, 159, 56, 0.25);
 }
 
 .name-actions {
@@ -143,20 +152,31 @@ button:not(:disabled),
 
 .name-actions button {
   flex: 1;
-  height: 44px;
+  height: 46px;
   border: 0;
   border-radius: 12px;
   font-weight: 800;
   font-family: inherit;
+  transition: transform 0.12s, filter 0.12s;
+}
+
+.name-actions button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
 }
 
 .name-actions .primary {
-  background: #4c9f38;
+  background: linear-gradient(180deg, #5cb848, #4c9f38);
   color: #f4f1e8;
+  box-shadow: 0 4px 14px rgba(76, 159, 56, 0.35);
 }
 
 .name-actions .ghost {
   background: transparent;
   color: #f4f1e8;
-  border: 1px solid color-mix(in oklab, #f4f1e8 18%, transparent);
+  border: 1px solid rgba(244, 241, 232, 0.2);
+}
+
+audio {
+  display: none;
 }
