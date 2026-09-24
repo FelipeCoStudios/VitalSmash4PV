@@ -2,13 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
   <title>Vital Smash</title>
   <meta name="description" content="Vital Smash — ODS 3 Salud y Bienestar. Aplasta fruta fresca, evita la comida prohibida." />
   <meta name="theme-color" content="#4C9F38" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:600,700,800,900" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -34,5 +33,17 @@
     </div>
   </main>
   <script src="game.js"></script>
+  <script>
+    (function () {
+      setTimeout(function () {
+        if (!window.__vital) {
+          var p = document.createElement("p");
+          p.style.cssText = "position:fixed;left:16px;right:16px;top:16px;z-index:99;color:#f4f1e8;font-family:Arial,sans-serif;background:#1b4332;padding:16px;border-radius:12px;";
+          p.innerHTML = "Vital Smash necesita un navegador más reciente (Chrome 49+, Safari 10+). Actualiza Chrome o usa otro dispositivo.";
+          document.body.appendChild(p);
+        }
+      }, 1200);
+    })();
+  </script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-(function(){var p=window.__P||[];(0,eval)(p.join(""));})();
+// Compat is now bundled in game.js. Harmless if an old HTML still loads this file.
